@@ -8,6 +8,7 @@ import Moment from 'moment';
 import Admin from './Admin';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import c from './../constants';
 
 class App extends React.Component {
 
@@ -28,7 +29,7 @@ class App extends React.Component {
       const ticket = this.props.masterTicketList[ticketId];
       const newFormattedWaitTime = ticket.timeOpen.fromNow(true);
       const action = {
-        type: 'UPDATE_TIME',
+        type: c.UPDATE_TIME,
         id: ticketId,
         formattedWaitTime: newFormattedWaitTime
       };
