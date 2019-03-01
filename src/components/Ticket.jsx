@@ -14,11 +14,23 @@ function Ticket(props){
     dispatch(action);
   }
 
+  function handleDeletingSelectedTicket(ticketId){
+    const { dispatch } = props;
+    const action = {
+      type: c.DELETE_TICKET,
+      ticketId: ticketId,
+    };
+    dispatch(action);
+  }
+
   const ticketInformation =
     <div>
       <h3>{props.location} - {props.names}</h3>
       <h4>{props.formattedWaitTime}</h4>
       <hr/>
+      <button onClick={() => {handleDeletingSelectedTicket(props.ticketId);}}>
+        "DELETE"
+      </button>
     </div>;
   if (props.currentRouterPath === '/admin'){
     return (
